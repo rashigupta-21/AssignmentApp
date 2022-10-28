@@ -19,7 +19,6 @@ function App() {
         </nav>
 
         <Switch>
-            {/*<Route path="/"><StudentComponent /> </Route>*/}
             <Route path="/getGender"><StudentComponent /> </Route>
             <Route path="/getCountry"><GetAllStudentDetails /> </Route>
         </Switch>

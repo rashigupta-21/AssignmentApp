@@ -35,7 +35,7 @@ class GetAllStudentDetails extends Component {
                     console.log('countrName=>', countryName);
                     resItem["countrName"] = countryName ? countryName.Name : resItem.country_id;
                 }
-                this.setState({ name: '', userData: res.country });
+                this.setState({ name: '', userData: res.country, loader: false });
             }).catch(e => {
                 console.log('error=>', e);
             })
@@ -61,7 +61,7 @@ class GetAllStudentDetails extends Component {
                                 </form>
                                 <div className="userDetails">
                                     {
-                                        this.state.userData !== null && this.state.userData.length > 0 &&
+                                        !this.state.loading && this.state.userData !== null && this.state.userData.length > 0 &&
                                         <div >
                                             {
                                                 this.state.userData.map(user =>
@@ -72,6 +72,11 @@ class GetAllStudentDetails extends Component {
                                                     </React.Fragment>)
                                             }
                                         </div>
+                                    }
+                                    {
+                                        this.state.loading && this.state.userData !== null && this.state.userData.length > 0 &&
+                                        <h3 >Data Loading ..
+                                        </h3>
                                     }
 
                                     {
